@@ -25,6 +25,15 @@ class flat(race_leg):
         return (f"{super().__str__()},   Traffic delay: {self._traffic_delay} mins,   Water support: {water_status}")
 
 
+    #displays the estimated time of the leg for the athlete to run
+    def display_estimate(self, athlete):
+        estimated_time = float(self.estimate_time(athlete))
+        water_status = "Yes" if self._water_support else "No"
+
+        print(f"Leg #{self._order},   Runner: {athlete.get_name()},   Distance: {self._distance} miles,   Type: {self._type},   Water Support: {water_status},   Est. leg time: {estimated_time} mins", end="")
+
+        return estimated_time
+    
 
     
     #randomizes flat leg stats appropriately, expects leg order to already be set upon instantiation
@@ -58,12 +67,12 @@ class flat(race_leg):
         else: #if there is not water support
             time *= 1.1 #increase time by 10%
 
-        return round(time, 2) #return estimated time rounded to 2 decimals
+        return int(round(time)) #return estimated time rounded to an int
 
 
     #updates the athletes new running speed and returns the actual time the entire leg took 
     def log_actual_time(self, athlete):
-        actual_time = float(input(f"Enter the time in minutes it actually took for {athlete.get_name()} to run leg {self._order}"))
+        actual_time = float(input(f"\nEnter the time in minutes it actually took for {athlete.get_name()} to run leg {self._order}: "))
 
         #sets athletes new speed with actual time for running this leg, does not factor in time the athlete waited at the end of the leg
         #for the van from a traffic delay
@@ -72,10 +81,11 @@ class flat(race_leg):
         except ValueError as e:
             print(e) #prints error if speed was attempted to be set to less then or equal to 0
         
-        if(self._traffic_delay >= 0): #if there was a traffic delay, add it to the time it took for the athlete to complete the leg
-            leg_time = actual_time + self._traffic_delay
+        if(self._traffic_delay > 0): #if there was a traffic delay, add it to the time it took for the athlete to complete the leg
+            actual_time += self._traffic_delay
+            print(f"Uh oh! The van got caught in traffic. It took an addition {self._traffic_delay} minutes to reach the athlete after they finished their leg. This contributes to the overall race time.")
 
-        return round(leg_time, 2) #returns time the entire leg took, until the next leg was able to start
+        return round(actual_time, 2) #returns time the entire leg took, until the next leg was able to start
 
     
     #pass in the time it took for the runner to run the leg, returns speed in mph

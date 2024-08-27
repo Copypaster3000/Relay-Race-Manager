@@ -42,6 +42,14 @@ class trail(race_leg):
                 raise MissingDataError("Missing Data Error. A race leg did not have it's order set already when it was randomized")
 
 
+    #displays the estimated time of the leg for the athlete to run
+    def display_estimate(self, athlete):
+        estimated_time = float(self.estimate_time(athlete))
+
+        print(f"Leg #{self._order},   Runner: {athlete.get_name()},   Distance: {self._distance} miles,   Type: {self._type},   Difficulty: {self.check_difficulty()},   Est. leg time: {estimated_time} mins", end="")
+
+        return estimated_time
+
     
     #pass in the athlete and the estimated time to finish the leg will be returned
     #this function cannot predict the future like twisted ankles or bear attacks!
@@ -51,14 +59,14 @@ class trail(race_leg):
         if(self._difficulty == 2): time *= 1.2 #increase estimated time based on difficulty
         if(self._difficulty == 3): time *= 1.5
 
-        return round(time, 2) #returns estimated time rounded to 2 decimals
+        return int(round(time)) #returns estimated time rounded to an int
 
 
     #this function logs the actual time it took the runner. It gets the time the user says it took the runner to finish the leg, then it tells the user
     #if the runner ran into any accidents on the trail and adds those to the runners leg time. This function updates the runners speed and returns the 
     #time it actually took the runner to complete this leg, this function also sets the athlete's injury status to injured if the trail did injure them
     def log_actual_time(self, athlete):
-        actual_time = float(input(f"Enter the time in minutes it actually took for {athlete.get_name()} to run leg {self._order}"))
+        actual_time = float(input(f"\nEnter the time in minutes it actually took for {athlete.get_name()} to run leg #{self._order}: "))
 
         #sets athlete new speed with their calculated flat speed based on their actual time for this leg
         #does not factor in trail issues so that the runners speed remains accurate for future estimations

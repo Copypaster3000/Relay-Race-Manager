@@ -4,7 +4,7 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the test functions which test the public methods of the race legs in the core hierarchy. 
+#This file holds the test functions which test the public methods of the main hierarchy in combination with the athlete class. 
 
 import pytest
 from errors import MissingDataError

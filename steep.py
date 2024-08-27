@@ -39,6 +39,15 @@ class steep(race_leg):
                 raise MissingDataError("Missing Data Error. A steep leg did not have it's order set already when it was randomized.")
 
 
+    #displays the estimated time of the leg for the athlete to run
+    def display_estimate(self, athlete):
+        estimated_time = float(self.estimate_time(athlete))
+
+        print(f"Leg #{self._order},   Runner: {athlete.get_name()},   Distance: {self._distance} miles,   Type: {self._type},   Elevation gain: {self._elevation_gain}ft,   Elevation loss: {self._elevation_loss}ft,   Est. leg time: {estimated_time} mins", end="")
+
+        return estimated_time
+
+
     #returns the estimated time to complete this leg, pass in the athlete running this leg
     #the estimate cannot predict if the runner will slip during this race leg
     def estimate_time(self, athlete):
@@ -46,13 +55,13 @@ class steep(race_leg):
         
         time *= (1 + (self.calc_ave_incline() / 10)) #adjusts time for average incline of the race leg
 
-        return round(time, 2) #returns the estimated time rounded to 2 decimals
+        return int(round(time)) #returns the estimated time rounded to an int
 
 
     #get the actual time it took the athlete to complete the race leg from user, uses that to calc athlete's new flat speed and updates it
     #then returns the athlete's leg time including any additional time due to issues on the leg
     def log_actual_time(self, athlete):
-        actual_time = float(input(f"Enter the time in minutes it actually took for {athlete.get_name()} to run leg {self._order}: "))
+        actual_time = float(input(f"\nEnter the time in minutes it actually took for {athlete.get_name()} to run leg #{self._order}: "))
 
         #sets athlete new speed with their calculated flat speed based on their actual time for this leg
         try:
@@ -62,8 +71,8 @@ class steep(race_leg):
 
         #if this race leg caused the runner to slip...
         if(self._slip):
-            print(f"{athlete.get_name()} slipped while running this leg, it added an additional 5 minutes on to their actual time.")
-            print("They did not become injured however, they will stay in the race. This slip will not affect estimates for future leg run times.")
+            print(f"{athlete.get_name()} slipped while running this leg, it added an additional 5 minutes to their actual time.")
+            print("They did not become injured they will stay in the race.")
             actual_time += 5
 
         return actual_time #returns the time runner ran this leg in
