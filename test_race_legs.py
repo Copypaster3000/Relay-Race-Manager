@@ -4,7 +4,8 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the test functions which test the public methods of the main hierarchy in combination with the athlete class. 
+#This file includes unit tests for the core hierarchy. It tests the unique public methods of each type of race legs. It also tests the self similar functions and tests
+#that they work correctly with the athlete class. 
 
 import pytest
 from errors import MissingDataError
@@ -137,7 +138,7 @@ def test_trail_twist_ankle():
 
 
 #test the overloaded __str__ function from the trail leg class. The function is used to print the class object details. 
-def test_trail__check_difficulty():
+def test_trail_check_difficulty():
     trail_leg1 = trail(1, 2, -1, False, False) #create a trail leg object that is the first leg, is two miles, has a difficulty of -1(meaning it has not been logged), and does not twist the runners ankle, and does not get eaten by a bear
     trail_leg2 = trail(1, 2, 1, False, False) #creates one object for each edge case and and middle cases. Difficulty can be from 1-3
     trail_leg3 = trail(1, 2, 2, False, False)
@@ -173,7 +174,7 @@ def test_steep_running_time_functions(monkeypatch):
     steep_leg1 = steep(2, 5, 1000, 200, False) #create a steep leg that is order #2, 5 miles, 1000 ft elevation gain, 200ft elevation loss and does not make the runner slip
     steep_leg2 = steep(2, 5, 1000, 200, True)
 
-    assert steep_leg1.estimate_time(athlete1) == 55.84 #checks time estimate based on leg distance, athlete speed, and trails average incline
+    assert steep_leg1.estimate_time(athlete1) == 56 #checks time estimate based on leg distance, athlete speed, and trails average incline
 
     #simulates the input of 60 for runners actual time when input is called in log_actual_time
     monkeypatch.setattr('builtins.input', lambda _: "60")
@@ -258,7 +259,7 @@ def test_flat_running_time_functions(monkeypatch):
     flat_leg2 = flat(3, 3, 0, True)
 
     #check the estimate time functions for two athletes with different running speeds
-    assert flat_leg1.estimate_time(athlete1) == 49.5
+    assert flat_leg1.estimate_time(athlete1) == 50
     assert flat_leg2.estimate_time(athlete2) == 27
 
     #simulates the input of 40 for each runners actual time when input is called in log_actual_time

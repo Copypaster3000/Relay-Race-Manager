@@ -4,7 +4,8 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the two_three_tree class. It manages the 2-3 tree which holds all the different legs of the race.
+#This file implements the two_three_tree class, which manages a 2-3 tree structure to store and organize race legs. The class provides methods to insert race legs, retrieve them based on their order, 
+#and display all the details of the race in sequence. The 2-3 tree ensures that the race legs are efficiently managed and accessible.
 
 import random
 from node import node
@@ -76,6 +77,7 @@ class two_three_tree:
 
 
     #goes to the leg # passed in with order, and displays the leg estimate with the athlete passed in, returns the estimated time for the leg
+    #returns None if there is no matching leg in the tree
     def display_pre_race_estimate(self, order, athlete):
         return self._display_pre_race_estimate(self._root, order, athlete)
 
@@ -98,6 +100,8 @@ class two_three_tree:
         #else if the other cases weren't  hit and there is a third child
         if(len(root._child) >= 3):
             return self._display_pre_race_estimate(root._child[2], order, athlete) #traverse to the third child
+
+        return None
 
             
 

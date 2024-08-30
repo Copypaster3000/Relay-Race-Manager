@@ -4,7 +4,8 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the race log class. This class manages a list of the athletes and a 2-3 tree of the race legs.
+#This file defines the race_log class, which manages the overall race, including the athletes and the 2-3 tree that organizes the race legs. 
+#It includes methods to create, display, and track the progress of the race, as well as handle various race events and outcomes.
 
 from athlete import athlete
 from two_three_tree import two_three_tree
@@ -139,7 +140,7 @@ class race_log:
             elif(choice == 2):
                 order = int(input("\nEnter the leg number of the leg you would like to retrieve: "))
                 leg = self._tree.retrieve(order)
-                if(order is None):
+                if(order is False):
                     print("There is no race leg with that leg number in the tree.")
                 else:
                     print(leg)

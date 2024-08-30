@@ -4,7 +4,9 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the main function of the program.
+#This file contains the main function of the program. 
+#It initializes the race by creating the race legs and athletes, estimating race times, conducting the race, 
+#and summarizing the results. It also allows for testing the functionality of the 2-3 tree used in the program.
 
 from race_log import race_log
 

@@ -3,7 +3,8 @@
 #Program 4-5
 #Karla Fant
 #8/14/2024
-#This file holds the race leg class, it is the parent class of the core hierarchy.
+#This file contains the race_leg class, which is the base class for representing a leg of a race. It holds essential information about the race leg, 
+#such as its order, distance, and type. The class provides methods to access these details and ensures that all required data is correctly set before use.
 
 from errors import MissingDataError
 

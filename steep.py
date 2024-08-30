@@ -4,7 +4,9 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the steep class which is derived from race leg. It represents steep race legs.
+#This file contains the steep class, which is a specialized subclass of race_leg. It represents a steep leg of a race, including additional attributes such as elevation gain, 
+#elevation loss, and the chance of a runner slipping. The class provides methods to estimate and log the time required to complete this challenging segment.ved from race leg. It represents steep race legs.
+
 
 from errors import MissingDataError
 from errors import RedundancyError

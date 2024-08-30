@@ -3,7 +3,10 @@
 #Program 4-5
 #Karla Fant
 #8/13/2024
-#This file holds the trail class which is derived from race leg. It represents the trail legs of the race.
+#This file defines the trail class, another subclass of race_leg. It represents a trail leg of a race, including attributes such as difficulty, and the possibility of injuries 
+#like twisted ankles or bear attacks. The class includes methods to estimate and log the time required for this type of race leg.
+
+
 
 from errors import MissingDataError
 from errors import RedundancyError
