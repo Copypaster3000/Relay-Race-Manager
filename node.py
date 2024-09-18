@@ -1,9 +1,5 @@
 #node.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
-#8/13/2024
 #This file contains the node class, which is used in the 2-3 tree structure that organizes the race legs. Each node can hold up to two 
 #race legs and manages its children. The class provides methods to add, sort, and retrieve data, as well as handle node splitting when necessary.
 
