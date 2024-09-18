@@ -1,8 +1,5 @@
 #2_3_tree.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file implements the two_three_tree class, which manages a 2-3 tree structure to store and organize race legs. The class provides methods to insert race legs, retrieve them based on their order, 
 #and display all the details of the race in sequence. The 2-3 tree ensures that the race legs are efficiently managed and accessible.
