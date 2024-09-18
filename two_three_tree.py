@@ -16,15 +16,14 @@ class two_three_tree:
     def __init__(self):
         self._root = None #Initialize root of the tree with null
 
-    #returns the race leg object that matches the order passed in
+    #method to retrieve the race leg object that matches the given order
     def retrieve(self, order):
-        if self._root is None: return False
+        if self._root is None: return False #returns false if the tree is empty
 
         return self._retrieve(self._root, order)
 
 
-    #recursive part
-    #returns the race leg object that matches the order passed in
+    #recursive part to traverse the tree and find the matching race leg
     def _retrieve(self, root, order):
         if(order == root._data[0].get_order()):  #if the first data matches the order passed in
             return root._data[0] #return the data object
@@ -183,7 +182,8 @@ class two_three_tree:
                 #replaces child traversed into with new child return and caught on line 98
                 if current.integrate_split(next_index, child) is not True: print("Error. Issue integrating a split back into the tree.")
 
-                if(current.split_me()): return self._split(current) #return the root of the split subtree
+                #if the current node itself needs to be split, return the resulting parent of the split subtree
+                if(current.split_me()): return self._split(current) 
             else: 
                 #set current's child pointer that was traversed into with the child that was returned and held onto on line 64
                 try:
