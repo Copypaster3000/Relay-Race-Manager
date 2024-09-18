@@ -1,8 +1,5 @@
 #race_log.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file defines the race_log class, which manages the overall race, including the athletes and the 2-3 tree that organizes the race legs. 
 #It includes methods to create, display, and track the progress of the race, as well as handle various race events and outcomes.
