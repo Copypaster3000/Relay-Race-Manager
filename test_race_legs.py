@@ -1,10 +1,7 @@
 #test_race_legs.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
-#This file includes unit tests for the core hierarchy. It tests the unique public methods of each type of race legs. It also tests the self similar functions and tests
+#This file includes unit tests for the core hierarchy. It tests the unique public methods of each type of race legs. It also tests the self-similar functions and tests
 #that they work correctly with the athlete class. 
 
 import pytest
