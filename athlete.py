@@ -1,8 +1,5 @@
 #athlete.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file contains the athlete class, representing a runner in the race. The class stores the athlete's name, speed, and injury status. 
 #It provides methods to manage and retrieve these attributes, ensuring that the athlete's data is accurately maintained throughout the race.
