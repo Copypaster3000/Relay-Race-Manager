@@ -1,8 +1,5 @@
 #test_two_three_tree.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file provides unit tests for the two_three_tree class. It checks the insertion, retrieval, and display functions of the tree, ensuring that the tree correctly manages and organizes the race legs.
 
