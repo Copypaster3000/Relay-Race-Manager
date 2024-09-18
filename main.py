@@ -1,8 +1,5 @@
 #main.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file contains the main function of the program. 
 #It initializes the race by creating the race legs and athletes, estimating race times, conducting the race, 
