@@ -1,8 +1,5 @@
 #flat.py
 #Drake Wheeler
-#CS302
-#Program 4-5
-#Karla Fant
 #8/13/2024
 #This file contains the flat class, a subclass of race_leg. It represents flat race legs and includes attributes like traffic delays and water support. 
 #The class provides methods to estimate and log the time required to complete these legs, considering the unique factors of flat terrain.
